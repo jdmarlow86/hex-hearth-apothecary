@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hex &amp; Hearth Apothecary</title>
+  <meta name="description" content="Small-batch candles, essential oils, altar oils, melts, spell jars, and soap." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header container">
+    <a class="brand" href="#">
+      <img src="assets/logo.svg" alt="Hex & Hearth Apothecary logo" width="44" height="44" />
+      <div class="brand-text">
+        <strong>Hex &amp; Hearth</strong>
+        <span>Apothecary</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <button id="themeToggle" class="btn icon" aria-label="Toggle dark mode" title="Toggle theme">🜁</button>
+      <a href="#catalog">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button id="cartBtn" class="btn primary">Cart <span id="cartCount" class="badge">0</span></button>
+    </nav>
+  </header>
+
+  <section class="hero container">
+    <div class="hero-text">
+      <h1>Crafted for your ritual &amp; everyday magic</h1>
+      <p>Small-batch candles, essential oils, altar oils, melts, spell jars, and soap—hand-poured with intention.</p>
+      <a href="#catalog" class="btn cta">Shop the Collection</a>
+    </div>
+    <div class="hero-art" aria-hidden="true"></div>
+  </section>
+
+  <section class="container filters" id="catalog">
+    <div class="controls">
+      <input id="searchInput" type="search" placeholder="Search products… (e.g., lavender, candle)" />
+      <select id="categorySelect" aria-label="Filter by category">
+        <option value="all">All categories</option>
+        <option value="essential-oils">Essential Oils</option>
+        <option value="candles">Candles</option>
+        <option value="melts">Melts</option>
+        <option value="altar-oils">Altar Oils</option>
+        <option value="spell-jars">Spell Jars</option>
+        <option value="soap">Soap</option>
+      </select>
+      <select id="sortSelect" aria-label="Sort products">
+        <option value="featured">Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A to Z</option>
+        <option value="name-desc">Name: Z to A</option>
+      </select>
+    </div>
+    <div id="productGrid" class="grid"></div>
+  </section>
+
+  <section id="about" class="about container">
+    <h2>About</h2>
+    <p>
+      At <em>Hex &amp; Hearth Apothecary</em>, we blend tradition with trend—creating elevated, witch‑themed goods
+      without the gatekeeping. Our items are hand‑crafted in small batches and packaged sustainably.
+    </p>
+  </section>
+
+  <section id="contact" class="contact container">
+    <h2>Contact</h2>
+    <form id="contactForm" class="card">
+      <div class="row">
+        <label>
+          Name
+          <input required name="name" placeholder="Your name" />
+        </label>
+        <label>
+          Email
+          <input required type="email" name="email" placeholder="you@example.com" />
+        </label>
+      </div>
+      <label>
+        Message
+        <textarea required name="message" rows="4" placeholder="What can we craft for you?"></textarea>
+      </label>
+      <button class="btn primary" type="submit">Send</button>
+      <p id="contactStatus" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <footer class="site-footer container">
+    <p>&copy; <span id="year"></span> Hex &amp; Hearth Apothecary • All rights reserved.</p>
+    <div class="policies">
+      <a href="#" aria-disabled="true">Shipping</a>
+      <a href="#" aria-disabled="true">Returns</a>
+      <a href="#" aria-disabled="true">Privacy</a>
+      <a href="#" aria-disabled="true">Terms</a>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <aside id="cartDrawer" class="cart" aria-hidden="true" aria-labelledby="cartTitle" role="dialog">
+    <div class="cart-header">
+      <h2 id="cartTitle">Your Cart</h2>
+      <button id="closeCart" class="btn icon" aria-label="Close cart">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-summary">
+      <div class="row">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <button id="checkoutBtn" class="btn cta">Checkout</button>
+      <p class="fineprint">Demo cart (no payment). Items persist locally.</p>
+    </div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
